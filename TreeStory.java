@@ -6,12 +6,6 @@ class TreeStory {
 
   public static void main(String[] argv) {
 
-    /*
-     *    __Name__ is an __adjective__ __noun__.
-     *
-     *    They are always __adverb__ __verb__.
-     */
-
     String ageString = console.readLine("How old are you?  ");
     int age = Integer.parseInt(ageString);
 
@@ -22,14 +16,18 @@ class TreeStory {
 
     String name = console.readLine("Enter your name:  ");
     String adj  = console.readLine("Enter an adjective:  ");
-    String noun = console.readLine("Enter a noun:  ");
+    String noun;
+    boolean isInvalidWord;
 
-    if (noun.equalsIgnoreCase("dork") ||
-        noun.equalsIgnoreCase("jerk") ||
-        noun.equalsIgnoreCase("nerd")) {
-      console.printf("That language is not allowed. Exiting...\n\n");
-      System.exit(0);
-    }
+    do {
+      noun = console.readLine("Enter a noun:  ");
+      isInvalidWord = (noun.equalsIgnoreCase("dork")||
+                               noun.equalsIgnoreCase("jerk")||
+                               noun.equalsIgnoreCase("nerd"));
+      if (isInvalidWord) {
+        console.printf("That language is not allowed. Try again! \n");
+      }
+    } while (isInvalidWord);
 
     String adv  = console.readLine("Enter an adverb:  ");
     String verb = console.readLine("Enter a verb ending in -ing:  ");
